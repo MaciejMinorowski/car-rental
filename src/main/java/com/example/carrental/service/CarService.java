@@ -28,7 +28,7 @@ public class CarService {
 
     public void increaseMileage(int kilometersDoneSinceLastUpdate, CarModel carModel){
         carModel.setMileage(carModel.getMileage() + kilometersDoneSinceLastUpdate);
-    }
+            }
 
     public void editMileage(int newMileage, CarModel carModel) {
         carModel.setMileage(newMileage);
@@ -51,6 +51,10 @@ public class CarService {
 
     public List<CarModel> getAllCars() {
         return carRepository.findAll();
+    }
+
+    public CarModel getCarModelById(Long id){
+        return carRepository.findById(id).orElse(null);
     }
 
 }
