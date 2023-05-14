@@ -1,5 +1,6 @@
 package com.example.carrental.controller;
 
+import com.example.carrental.DTO.CarDTO;
 import com.example.carrental.model.CarModel;
 import com.example.carrental.model.CarStatus;
 import com.example.carrental.service.CarService;
@@ -23,10 +24,10 @@ public class CarController {
         return carService.getAllCars();
     }
 
+
     @PostMapping
-    public void addCar(@RequestBody CarModel carModel) {
-        carService.addCar(carModel);
-//        System.out.println(carModel); //tu sobie sprawdzamy
+    public void addCar(@RequestBody CarDTO carDTO) {
+        carService.addCar(carDTO);
     }
 
     @DeleteMapping("/{id}")
@@ -34,23 +35,13 @@ public class CarController {
         carService.deleteCar(id);
     }
 
-    @PostMapping("/mileage/add/{id}")
-    public void addCarMileage(@PathVariable("id") Long id, Model model, int mileage) {
+
+    @PostMapping("/edit/{id}")
+    public void editCar(@PathVariable("id") Long id, @RequestBody CarDTO carDTO){
     CarModel carModel = carService.getCarModelById(id);
-    carService.increaseMileage(mileage, carModel);
+    carService.editCar(carDTO, carModel);
     }
 
-    @PostMapping("/mileage/edit/{id}")
-    public void editCarMileage(@PathVariable("id") Long id, Model model, int mileage) {
-        CarModel carModel = carService.getCarModelById(id);
-        carService.editMileage(mileage, carModel);
-    }
-
-    @PostMapping("/price/edit/{id}")
-    public void editCarPricePerDay(@PathVariable("id") Long id, Model model, int pricePerDay) {
-        CarModel carModel = carService.getCarModelById(id);
-        carService.editPricePerDay(pricePerDay, carModel);
-    }
 
     @GetMapping("/status/{id}")
     public CarStatus getCarStatusOnAGivenDay(@PathVariable("id") Long id, LocalDate localDate){

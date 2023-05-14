@@ -1,5 +1,7 @@
 package com.example.carrental.service;
 
+import com.example.carrental.DTO.CarDTO;
+import com.example.carrental.mapper.CarMapper;
 import com.example.carrental.model.CarModel;
 import com.example.carrental.model.CarStatus;
 import com.example.carrental.model.CarStatusHistoryModel;
@@ -16,27 +18,28 @@ import java.util.List;
 public class CarService {
 
     private final CarRepository carRepository;
+    private final CarMapper carMapper;
 
-    public void addCar(CarModel carModel) {
-        carRepository.save(carModel);
+//    public void addCar(CarModel carModel) {
+//        carRepository.save(carModel);
+//    }
+
+    public void addCar(CarDTO carDTO) {
+        CarModel newCar = new CarModel();
+        carMapper.carDTOToCarModel(carDTO, newCar);
+        carRepository.save(newCar);
     }
 
     public void deleteCar(Long id){
         carRepository.deleteById(id);
     }
 
-
-    public void increaseMileage(int kilometersDoneSinceLastUpdate, CarModel carModel){
-        carModel.setMileage(carModel.getMileage() + kilometersDoneSinceLastUpdate);
-            }
-
-    public void editMileage(int newMileage, CarModel carModel) {
-        carModel.setMileage(newMileage);
+    public void editCar (CarDTO carDTO, CarModel editedCarModel) {
+        carMapper.carDTOToCarModel(carDTO, editedCarModel);
+        carRepository.save(editedCarModel);
     }
 
-    public void editPricePerDay(int newPricePerDay, CarModel carModel) {
-        carModel.setPricePerDay(newPricePerDay);
-    }
+
 
     public CarStatus getCarStatusOnGivenDay(LocalDate date, CarModel carModel) {
         List<CarStatusHistoryModel> statusHistoryModelsOfAGivenCar = carModel.getCarStatusHistoryModels();

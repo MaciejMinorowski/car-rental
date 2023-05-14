@@ -30,13 +30,13 @@ public class CarModel {
     private String color;
 
     @Column(name = "year_of_production")
-    private int yearOfProduction;
+    private Integer yearOfProduction;
 
     @Column(name="mileage")
-    private int mileage;
+    private Integer mileage;
 
     @Column(name = "price_per_day")
-    private double pricePerDay;
+    private Double pricePerDay;
 
     @OneToMany
     private List<CarStatusHistoryModel> carStatusHistoryModels;
@@ -44,5 +44,6 @@ public class CarModel {
     @ManyToOne
     @JoinColumn(name = "car_rental_id")
     private CarRentalModel carRental;
+
 
 }
