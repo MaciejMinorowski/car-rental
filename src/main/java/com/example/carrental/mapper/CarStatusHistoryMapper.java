@@ -5,6 +5,7 @@ import com.example.carrental.model.CarStatusHistoryModel;
 
 public class CarStatusHistoryMapper {
 
+
     public CarStatusHistoryModel carStatusHistoryDTOToCarStatusHistoryModel (CarStatusHistoryModel carStatusHistoryModel, CarStatusHistoryDTO carStatusHistoryDTO) {
         if (carStatusHistoryDTO.getStartDate() != null) {
             carStatusHistoryModel.setStartDate(carStatusHistoryDTO.getStartDate());

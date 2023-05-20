@@ -2,10 +2,8 @@ package com.example.carrental.controller;
 
 import com.example.carrental.DTO.CarStatusHistoryDTO;
 import com.example.carrental.model.CarStatusHistoryModel;
-import com.example.carrental.repository.CarStatusHistoryRepository;
-import com.example.carrental.service.CarSatusHistoryService;
+import com.example.carrental.service.CarStatusHistoryService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CarStatusHistoryController {
 
-    private final CarSatusHistoryService carSatusHistoryService;
+    private final CarStatusHistoryService carSatusHistoryService;
 
     @GetMapping("/{id}")
     public List<CarStatusHistoryModel> getCarStatusHistoryForASingleCar (@PathVariable Long id) {

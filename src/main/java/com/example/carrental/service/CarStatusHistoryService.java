@@ -2,7 +2,6 @@ package com.example.carrental.service;
 
 import com.example.carrental.DTO.CarStatusHistoryDTO;
 import com.example.carrental.mapper.CarStatusHistoryMapper;
-import com.example.carrental.model.CarModel;
 import com.example.carrental.model.CarStatusHistoryModel;
 import com.example.carrental.repository.CarStatusHistoryRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +12,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class CarSatusHistoryService {
+public class CarStatusHistoryService {
 
     private final CarStatusHistoryRepository carStatusHistoryRepository;
 

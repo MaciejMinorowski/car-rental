@@ -43,7 +43,7 @@ public class CarModel {
 
     @ManyToOne
     @JoinColumn(name = "car_rental_id")
-    private CarRentalModel carRental;
+    private CarRentalModel carRentalModel;
 
 
 }
