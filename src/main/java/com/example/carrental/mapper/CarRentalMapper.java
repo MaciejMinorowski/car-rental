@@ -17,13 +17,6 @@ public class CarRentalMapper {
         carRentalModel.setAddress(carRentalDTO.getAddress());
     }
 
-    if (carRentalDTO.getOwner() != null) {
-        carRentalModel.setOwner(carRentalDTO.getOwner());
-    }
-
-    if (carRentalDTO.getAdmin() != null) {
-        carRentalModel.setAdmin(carRentalDTO.getAdmin());
-    }
 
     if (carRentalDTO.getDomain() != null) {
         carRentalModel.setDomain(carRentalDTO.getDomain());

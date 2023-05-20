@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -29,19 +31,17 @@ public class CarRentalModel {
     private String address;
 
     @Column
-    private EmployeeModel admin;
-
-    @Column
-    private EmployeeModel owner;
+    @OneToMany
+    private List<EmployeeModel> employeeModelList;
 
     @Column
     private String logotype;
 
-    @OneToMany
-    private CarModel carModel;
+    @OneToMany(mappedBy = "carRentalModel")
+    private List<CarModel> carModelList;
 
     @OneToMany (mappedBy = "")
-    private DepartmentModel departmentModel;
+    private List<DepartmentModel> departmentModelList;
 
 
 
