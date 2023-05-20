@@ -10,11 +10,8 @@ public class BookingMapper {
 
     public BookingModel bookingDTOToBookingModel(BookingDTO bookingDTO, BookingModel bookingModel) {
 
-//        if (bookingDTO.getId != null) {
-//            bookingModel.setId((bookingDTO.getId()));
-//        }
 
-//        if (bookingDTO.getEmployeeId() != null) {
+//        if (bookingDTO.getEmployeeId() != null) {  // EmployyeeMOdel
 //            bookingModel.setEmployeeId((bookingDTO.getEmployeeId()));
 //        }
 

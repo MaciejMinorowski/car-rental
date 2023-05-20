@@ -6,8 +6,10 @@ public class BookingController {
 
 
 
-   // private final BookingService bookingService;
+   private final BookingService bookingService;
 
 
-    
+   //TODO logika
+
+
 }

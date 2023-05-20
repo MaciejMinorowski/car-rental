@@ -11,35 +11,29 @@ import lombok.*;
 @AllArgsConstructor
 @Data
 public class BookingModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
-    //TODO
-    // sprawdzić   notnul i autoincrement
-
-             //Employee id NotNull autoincrement
-
-    //@Column(name = "employee_id")
-    //private Employee employeeID;
+    @OneToOne(mappedBy = "employee_model")
+    @JoinColumn
+    private EmployeeModel employeeModel; // czy odwołuję się do CarModel?  nazwa zmiennej?
 
 
-             //Reservation_startDAte datetime Notnull
-
-    //    @Column (name = "reservation_start_date")
-    //    private Reservation reservationStartDate;
-
-
-            //reservation-Id Not Null autoincrement
-
-    //    @Column (name = reservation_id)
-    //    private Reservation reservationId;
+    @OneToOne(mappedBy = "reservation_start_date")
+    @JoinColumn
+    private ReservationModel reservationModelStartDate;  // czy odwołuję się do CarModel?  nazwa zmiennej?
 
 
 
-@Column(name = "comments")
-private String comments;
+    @Column(name = "reservation_id")
+    private ReservationModel reservationId; // czy odwołuję się do CarModel?  nazwa zmiennej?
+
+
+    @Column(name = "comments")
+    private String comments;
 
 
 }
