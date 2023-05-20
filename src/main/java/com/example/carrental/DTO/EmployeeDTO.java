@@ -15,7 +15,7 @@ public class EmployeeDTO {
 
     private String firstName;
     private String lastName;
-    private boolean isManager;
+    private Boolean isManager;
     private DepartmentModel departmentModel;
 
 

@@ -25,7 +25,7 @@ public class DepartmentController {
 
     @PostMapping
     public void addDepartment(@RequestBody DepartmentDTO departmentDTO) {
-        departmentService.addCar(departmentDTO);
+        departmentService.addDepartment(departmentDTO);
     }
 
     @DeleteMapping("/{id}")

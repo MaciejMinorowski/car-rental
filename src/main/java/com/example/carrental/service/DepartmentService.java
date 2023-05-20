@@ -21,7 +21,7 @@ public class DepartmentService {
         return departmentRepository.findAll();
     }
 
-    public void addCar(DepartmentDTO departmentDTO) {
+    public void addDepartment(DepartmentDTO departmentDTO) {
         DepartmentModel newDepartment = new DepartmentModel();
         departmentMapper.departmentDTOToDepartmentModel(departmentDTO, newDepartment);
         departmentRepository.save(newDepartment);

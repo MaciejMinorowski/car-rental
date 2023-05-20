@@ -27,7 +27,7 @@ public class DepartmentModel {
     private String departmentAddress;
 
     @OneToMany(mappedBy = "departmentModel")
-    private Set<EmployeeModel> employeeModels = new HashSet<>();
+    private Set<EmployeeModel> employeeModels;
 
     @ManyToOne
     @JoinColumn(name = "car_rental_id")

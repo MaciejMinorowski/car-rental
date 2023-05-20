@@ -17,10 +17,8 @@ public class EmployeeMapper {
         if (employeeDTO.getDepartmentModel() != null){
             employeeModel.setDepartmentModel(employeeDTO.getDepartmentModel());
         }
-        if (employeeDTO.isManager()){
-            employeeModel.setManager(true);
-        } else {
-            employeeModel.setManager(false);
+        if (employeeDTO.getIsManager() != null) {
+            employeeModel.setIsManager(employeeDTO.getIsManager());
         }
 
         return employeeModel;

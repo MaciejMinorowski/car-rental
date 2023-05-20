@@ -24,7 +24,7 @@ public class EmployeeModel {
     private String lastName;
 
     @Column(name = "is_manager")
-    private boolean isManager;
+    private Boolean isManager;
 
     @ManyToOne
     @JoinColumn(name = "department_id")
