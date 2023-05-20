@@ -16,9 +16,13 @@ public class ReturnService {
 
     private final ReturnMapper returnMapper;
 
-    public List<ReturnModel> getAllReturns() { return returnRepository.findAll(); }
+    public List<ReturnModel> getAllReturns() {
+        return returnRepository.findAll();
+    }
 
-    public ReturnModel getReturnModelById(Long id) { return returnRepository.findById(id).orElse(null); }
+    public ReturnModel getReturnModelById(Long id) {
+        return returnRepository.findById(id).orElse(null);
+    }
 
 
     public void addReturn(ReturnDTO returnDTO) {
@@ -27,7 +31,9 @@ public class ReturnService {
         returnRepository.save(newReturn);
     }
 
-    public void deleteReturn(Long id) { returnRepository.deleteById(id); }
+    public void deleteReturn(Long id) {
+        returnRepository.deleteById(id);
+    }
 
     public void editReturn(ReturnDTO returnDTO, ReturnModel editedReturnModel) {
         returnMapper.returnDTOToReturnModel(returnDTO, editedReturnModel);

@@ -28,14 +28,14 @@ public class ReservationService {
         reservationRepository.deleteById(id);
     }
 
-    public void editReservation(ReservationDTO reservationDTO, ReservationModel editedReservationModel){
-        reservationMapper.reservationDTOToReservationModel(reservationDTO, editedReservationModel );
+    public void editReservation(ReservationDTO reservationDTO, ReservationModel editedReservationModel) {
+        reservationMapper.reservationDTOToReservationModel(reservationDTO, editedReservationModel);
         reservationRepository.save(editedReservationModel);
     }
 
-//    public List<ReservationModel> getAllReservation{
-//        return reservationRepository.findAll();
-//    }
+    public List<ReservationModel> getAllReservation() {
+        return reservationRepository.findAll();
+    }
 
 
 }

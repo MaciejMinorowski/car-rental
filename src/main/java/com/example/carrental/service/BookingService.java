@@ -13,9 +13,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BookingService {
 
-    private  final BookingRepository bookingRepository;
+    private final BookingRepository bookingRepository;
 
-    private  final BookingMapper bookingMapper;
+    private final BookingMapper bookingMapper;
 
     public void addBooking(BookingDTO bookingDTO) {
         BookingModel newBooking = new BookingModel();
@@ -34,12 +34,12 @@ public class BookingService {
     }
 
 
-    public List<BookingModel> getAllBookings(){
-        return  bookingRepository.findAll();
+    public List<BookingModel> getAllBookings() {
+        return bookingRepository.findAll();
     }
 
-    public BookingModel getBookingModelbyId(Long id){
-        return  bookingRepository.findById(id).orElse(null);
+    public BookingModel getBookingModelById(Long id) {
+        return bookingRepository.findById(id).orElse(null);
     }
 
 
