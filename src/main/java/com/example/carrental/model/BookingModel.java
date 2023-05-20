@@ -3,6 +3,8 @@ package com.example.carrental.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+
 
 @Entity
 @Getter
@@ -17,19 +19,12 @@ public class BookingModel {
     private Long id;
 
 
-    @OneToOne(mappedBy = "employee_model")
-    @JoinColumn
-    private EmployeeModel employeeModel; // czy odwołuję się do CarModel?  nazwa zmiennej?
+    @OneToOne
+    @JoinColumn (name = "employee_model")
+    private EmployeeModel employeeModel;
 
-
-    @OneToOne(mappedBy = "reservation_start_date")
-    @JoinColumn
-    private ReservationModel reservationModelStartDate;  // czy odwołuję się do CarModel?  nazwa zmiennej?
-
-
-
-    @Column(name = "reservation_id")
-    private ReservationModel reservationId; // czy odwołuję się do CarModel?  nazwa zmiennej?
+    @Column (name = "booking_start_day")
+    private LocalDate bookingStartDay;
 
 
     @Column(name = "comments")

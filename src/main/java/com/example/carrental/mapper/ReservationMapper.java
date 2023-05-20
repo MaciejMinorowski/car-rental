@@ -10,36 +10,41 @@ import java.util.Date;
 @Component
 public class ReservationMapper {
 
-    public ReservationModel reservationDTOToReservationModel(ReservationDTO reservationDTO, ReservationModel reservationModel){
+    public ReservationModel reservationDTOToReservationModel(ReservationDTO reservationDTO, ReservationModel reservationModel) {
 
-        if (reservationDTO.getReservationStartDate() != null){
+        if (reservationDTO.getReservationStartDate() != null) {
             reservationModel.setReservationStartDate((reservationDTO.getReservationStartDate()));
         }
-        if (reservationDTO.getReservationEndDate() != null){
+        if (reservationDTO.getReservationEndDate() != null) {
             reservationModel.setReservationEndDate(reservationDTO.getReservationEndDate());
         }
-        if (reservationDTO.getCarModelId() != null){
-            reservationModel.setCarModelId(reservationDTO.getCarModelId());
+        if (reservationDTO.getCustomerModel() != null) {
+            reservationModel.setCustomerModel(reservationDTO.getCustomerModel());
         }
-        if (reservationDTO.getStartDepartmentId() != null){
-            reservationModel.setStartDeparmentId(reservationDTO.getStartDepartmentId());
+        if (reservationDTO.getCarModel() != null) {
+            reservationModel.setCarModel(reservationDTO.getCarModel());
         }
-        if (reservationDTO.getDestinationDepartmentId()) != null){
-            reservationModel.setDestinationDepartmentId(reservationDTO.getDestinationDepartmentId());
+
+        if (reservationDTO.getStartDepartmentModel() != null) {
+            reservationModel.setStartDepartmentModel(reservationDTO.getStartDepartmentModel());
         }
-        if (reservationDTO.getPrice() != null){
+
+        if (reservationDTO.getDestinationDepartmentModel() != null) {
+            reservationModel.setDestinationDepartmentModel(reservationDTO.getDestinationDepartmentModel());
+        }
+        if (reservationDTO.getPrice() != null) {
             reservationModel.setPrice(reservationDTO.getPrice());
+        }
 
-
-
-//       // private Date reservationStartDate;
-//        private Date reservationEndDate;
-//        private CarModel carModelId;   // czy odwołuję się do CarModel?  nazwa zmiennej?
-//        private Department startDeparmentId;  // nazwa zmiennej?
-//        private Department destinationDepartmentId;  // nazwa zmiennej?
-//        private Double price;
-
+        return reservationModel;
     }
-
-
 }
+
+
+
+
+
+
+
+
+

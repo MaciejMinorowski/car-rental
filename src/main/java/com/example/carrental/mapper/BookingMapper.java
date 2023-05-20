@@ -11,20 +11,15 @@ public class BookingMapper {
     public BookingModel bookingDTOToBookingModel(BookingDTO bookingDTO, BookingModel bookingModel) {
 
 
-//        if (bookingDTO.getEmployeeId() != null) {  // EmployyeeMOdel
-//            bookingModel.setEmployeeId((bookingDTO.getEmployeeId()));
-//        }
+        if (bookingDTO.getEmployeeModel() != null) {
+            bookingModel.setEmployeeModel(bookingDTO.getEmployeeModel());
+        }
 
-//        if (bookingDTO.getReservationStartDate() != null) {
-//            bookingModel.setReservationStartDate((bookingDTO.getReservationStartDate()));
-//        }
+        if (bookingDTO.getBookingStartDay() != null) {
+            bookingModel.setBookingStartDay(bookingDTO.getBookingStartDay());
+        }
 
-
-//        if (bookingDTO.getReservationId() != null) {
-//            bookingModel.setReservationId((bookingDTO.getReservationId()));
-//        }
-
-        if(bookingDTO.getComments() != null) {
+        if (bookingDTO.getComments() != null) {
             bookingModel.setComments(bookingDTO.getComments());
         }
 

@@ -1,11 +1,14 @@
 package com.example.carrental.DTO;
 
 import com.example.carrental.model.CarModel;
+import com.example.carrental.model.CustomerModel;
+import com.example.carrental.model.DepartmentModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -13,14 +16,13 @@ import java.util.Date;
 @AllArgsConstructor
 public class ReservationDTO {
 
-
-   // private Long id;  - tego nie chcemy edytować
-  //  private Date reservationBookingDate; // tego nie chcemy edytować
-    private Date reservationStartDate;
-    private Date reservationEndDate;
-    private CarModel carModelId;   // czy odwołuję się do CarModel?  nazwa zmiennej?
-    private Department startDepartmentId;  // nazwa zmiennej?
-    private Department destinationDepartmentId;  // nazwa zmiennej?
+    private LocalDate reservationBookingDate;
+    private LocalDate reservationStartDate;
+    private LocalDate reservationEndDate;
+    private CustomerModel customerModel;
+    private CarModel carModel;
+    private DepartmentModel startDepartmentModel;
+    private DepartmentModel destinationDepartmentModel;
     private Double price;
 
 

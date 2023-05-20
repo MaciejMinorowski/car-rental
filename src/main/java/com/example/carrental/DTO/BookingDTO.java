@@ -1,11 +1,14 @@
 package com.example.carrental.DTO;
 
 
+import com.example.carrental.model.EmployeeModel;
 import com.example.carrental.model.ReservationModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -13,15 +16,13 @@ import lombok.Setter;
 public class BookingDTO {
 
 
-    // Check -  dajemy tu tylko pola, które pozwalamy edytować???
-    //private Long id;
-
-    private EmployeeModel employeeModel; // czy odwołuję się do CarModel?  nazwa zmiennej?
-
-    private ReservationModel reservationModelStartDate;  // czy odwołuję się do CarModel?  nazwa zmiennej?
-
-    private ReservationModel reservationId; // czy odwołuję się do CarModel?  nazwa zmiennej?
-
     private String comments;
 
+    private EmployeeModel employeeModel;
 
+    private LocalDate bookingStartDay;
+
+
+
+
+}
