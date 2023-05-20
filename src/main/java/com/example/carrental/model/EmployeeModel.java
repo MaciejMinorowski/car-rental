@@ -13,7 +13,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class EmployeeModel {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,5 +28,4 @@ public class EmployeeModel {
     @ManyToOne
     @JoinColumn(name = "department_id")
     private DepartmentModel departmentModel;
-
 }

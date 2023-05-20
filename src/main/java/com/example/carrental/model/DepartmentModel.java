@@ -1,5 +1,6 @@
 package com.example.carrental.model;
 
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,5 +34,4 @@ public class DepartmentModel {
     @JoinColumn(name = "car_rental_id")
     private CarRentalModel carRentalModel;
 }
-
 

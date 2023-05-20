@@ -5,9 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Getter
@@ -30,9 +28,8 @@ public class CarStatusHistoryModel {
     private CarStatus carStatus;
 
     @ManyToOne
+    @JoinColumn (name = "car_model_id")
     private CarModel carModel;
-
-
 
 
 

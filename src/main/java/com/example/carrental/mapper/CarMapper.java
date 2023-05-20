@@ -29,8 +29,8 @@ public class CarMapper {
         if (carDTO.getPricePerDay() != null){
             carModel.setPricePerDay(carDTO.getPricePerDay());
         }
-        if (carDTO.getCarRental() != null){
-            carModel.setCarRental(carDTO.getCarRental());
+        if (carDTO.getCarRentalModel() != null){
+            carModel.setCarRentalModel(carDTO.getCarRentalModel());
         }
 
         return carModel;
