@@ -30,25 +30,27 @@ public class ReservationModel {
     @Column(name = "reservation_end_date")
     private LocalDate reservationEndDate;
 
-    @OneToOne
-    @JoinColumn(name = "customer_model")
+    @Column(name = "price")
+    private Double price;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_model_id")
     private CustomerModel customerModel;
 
     @OneToOne
-    @JoinColumn(name = "car_model")
+    @JoinColumn(name = "car_model_id")
     private CarModel carModel;
 
     @OneToOne
-    @JoinColumn(name = "start_department")
+    @JoinColumn(name = "start_department_id")
     private DepartmentModel startDepartmentModel;  // czy odwołuję się do CarModel?  nazwa zmiennej?
 
 
     @OneToOne
-    @JoinColumn(name = "destination_department_model")
+    @JoinColumn(name = "destination_department_model_id")
     private DepartmentModel destinationDepartmentModel;  // czy odwołuję się do CarModel?  nazwa zmiennej?
 
-    @Column(name = "price")
-    private Double price;
+
 
 
 }

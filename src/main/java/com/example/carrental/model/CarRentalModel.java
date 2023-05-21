@@ -8,6 +8,7 @@ import lombok.Setter;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -40,7 +41,11 @@ public class CarRentalModel {
     @OneToMany(mappedBy = "carRentalModel")
     private List<CarModel> carModelList;
 
+
+    @OneToMany(mappedBy = "carRentalModel")
+    private Set<CustomerModel> customerModelSet;
+
     @OneToMany (mappedBy = "carRentalModel")
-    private List<DepartmentModel> departmentModelList;
+    private Set<DepartmentModel> departmentModelSet;
 
 }
