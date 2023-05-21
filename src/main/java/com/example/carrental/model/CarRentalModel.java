@@ -41,15 +41,11 @@ public class CarRentalModel {
     @OneToMany(mappedBy = "carRentalModel")
     private List<CarModel> carModelList;
 
+
     @OneToMany(mappedBy = "carRentalModel")
     private Set<CustomerModel> customerModelSet;
 
     @OneToMany (mappedBy = "carRentalModel")
     private Set<DepartmentModel> departmentModelSet;
-
-
-
-
-
 
 }
