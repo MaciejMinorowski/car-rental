@@ -43,7 +43,7 @@ public class ReservationController {
     public void editReservation(@PathVariable("id") Long id, @RequestBody ReservationDTO reservationDTO){
         ReservationModel reservationModel = reservationService.getAllReservation().get(Math.toIntExact(id));
         reservationService.editReservation(reservationDTO,reservationModel);
-        
+
     }
 
 
