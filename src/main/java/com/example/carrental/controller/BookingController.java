@@ -17,30 +17,28 @@ import java.util.List;
 public class BookingController {
 
 
+    private final BookingService bookingService;
 
-   private final BookingService bookingService;
+    @GetMapping
+    public List<BookingModel> getBookings() {
+        return bookingService.getAllBookings();
+    }
 
-   @GetMapping
-   public List<BookingModel> getBookings() {
-      return bookingService.getAllBookings();
-   }
-@PostMapping
-   public void  addBooking(@RequestBody BookingDTO bookingDTO) {
-      bookingService.addBooking(bookingDTO);
-}
+    @PostMapping
+    public void addBooking(@RequestBody BookingDTO bookingDTO) {
+        bookingService.addBooking(bookingDTO);
+    }
 
-@DeleteMapping
-public void deleteBookingById(@PathVariable("id") Long id) {
-      bookingService.deleteBooking(id);
-}
-@PostMapping
-public void editBooking(@PathVariable("id") Long id,@RequestBody BookingDTO bookingDTO){
-      BookingModel bookingModel = bookingService.getBookingModelById(id);
-      bookingService.editBooking(bookingDTO, bookingModel);
-}
+    @DeleteMapping("/{id}")
+    public void deleteBookingById(@PathVariable("id") Long id) {
+        bookingService.deleteBooking(id);
+    }
 
-
-
+    @PostMapping("/edit/{id}")
+    public void editBooking(@PathVariable("id") Long id, @RequestBody BookingDTO bookingDTO) {
+        BookingModel bookingModel = bookingService.getBookingModelById(id);
+        bookingService.editBooking(bookingDTO, bookingModel);
+    }
 
 
 }
