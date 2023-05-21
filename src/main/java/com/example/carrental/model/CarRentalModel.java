@@ -40,12 +40,7 @@ public class CarRentalModel {
     @OneToMany(mappedBy = "carRentalModel")
     private List<CarModel> carModelList;
 
-    @OneToMany (mappedBy = "")
+    @OneToMany (mappedBy = "carRentalModel")
     private List<DepartmentModel> departmentModelList;
-
-
-
-
-
 
 }

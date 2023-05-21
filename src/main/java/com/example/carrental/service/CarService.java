@@ -20,9 +20,7 @@ public class CarService {
     private final CarRepository carRepository;
     private final CarMapper carMapper;
 
-//    public void addCar(CarModel carModel) {
-//        carRepository.save(carModel);
-//    }
+
 
     public void addCar(CarDTO carDTO) {
         CarModel newCar = new CarModel();
