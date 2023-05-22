@@ -1,7 +1,9 @@
 package com.example.carrental.controller;
 
 import com.example.carrental.DTO.ReturnDTO;
+import com.example.carrental.model.BookingModel;
 import com.example.carrental.model.ReturnModel;
+import com.example.carrental.repository.ReservationRepository;
 import com.example.carrental.service.ReturnService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +16,7 @@ import java.util.List;
 public class ReturnController {
 
     private final ReturnService returnService;
+    private final ReservationRepository reservationRepository;
 
     @GetMapping
     public List<ReturnModel> getReturns(){
@@ -21,8 +24,11 @@ public class ReturnController {
 
     }
 
-    @PostMapping
-    public void addReturn (@RequestBody ReturnDTO returnDTO) { returnService.addReturn(returnDTO); }
+    @PostMapping("/{id}")
+    public void addReturn (@RequestBody ReturnDTO returnDTO, @PathVariable Long id) {
+        ReturnModel returnModel = returnService.addReturn(returnDTO);
+        reservationRepository.getReservationModelById(id).setReturnModel(returnModel);
+    }
 
     @DeleteMapping("/{id}")
     public void deleteReturnById(@PathVariable("id") Long id) { returnService.deleteReturn(id); }

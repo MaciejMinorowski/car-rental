@@ -13,7 +13,6 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 public class ReservationModel {
 
 
@@ -48,8 +47,15 @@ public class ReservationModel {
 
     @OneToOne
     @JoinColumn(name = "destination_department_model_id")
-    private DepartmentModel destinationDepartmentModel;  // czy odwołuję się do CarModel?  nazwa zmiennej?
+    private DepartmentModel destinationDepartmentModel;
 
+
+    @OneToOne
+    private BookingModel bookingModel;
+
+
+    @OneToOne
+    private ReturnModel returnModel;
 
 
 

@@ -25,10 +25,11 @@ public class ReturnService {
     }
 
 
-    public void addReturn(ReturnDTO returnDTO) {
+    public ReturnModel addReturn(ReturnDTO returnDTO) {
         ReturnModel newReturn = new ReturnModel();
         returnMapper.returnDTOToReturnModel(returnDTO, newReturn);
         returnRepository.save(newReturn);
+        return newReturn;
     }
 
     public void deleteReturn(Long id) {

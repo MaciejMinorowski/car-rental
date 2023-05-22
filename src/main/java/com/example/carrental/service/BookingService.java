@@ -17,10 +17,11 @@ public class BookingService {
 
     private final BookingMapper bookingMapper;
 
-    public void addBooking(BookingDTO bookingDTO) {
+    public BookingModel addBooking(BookingDTO bookingDTO) {
         BookingModel newBooking = new BookingModel();
         bookingMapper.bookingDTOToBookingModel(bookingDTO, newBooking);
         bookingRepository.save(newBooking);
+        return newBooking;
     }
 
     public void deleteBooking(Long id) {

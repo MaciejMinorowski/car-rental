@@ -1,16 +1,15 @@
 package com.example.carrental.controller;
 
-import com.example.carrental.DTO.CarDTO;
+import com.example.carrental.DTO.CarStatusHistoryDTO;
 import com.example.carrental.DTO.ReservationDTO;
-import com.example.carrental.model.CarModel;
 import com.example.carrental.model.CarStatus;
 import com.example.carrental.model.ReservationModel;
+import com.example.carrental.repository.ReservationRepository;
+import com.example.carrental.service.CarStatusHistoryService;
 import com.example.carrental.service.ReservationService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -21,6 +20,10 @@ public class ReservationController {
 
 
     private final ReservationService reservationService;
+    private final CarStatusHistoryService carStatusHistoryService;
+    private final ReservationRepository reservationRepository;
+
+
 
     @GetMapping
     public List<ReservationModel> getReservations() {
@@ -31,7 +34,13 @@ public class ReservationController {
     @PostMapping
     public void addReservation(@RequestBody ReservationDTO reservationDTO) {
         reservationService.addReservation(reservationDTO);
+        CarStatusHistoryDTO carStatusHistoryDTO =
+                new CarStatusHistoryDTO(reservationDTO.getReservationStartDate()
+                        , reservationDTO.getReservationEndDate(), CarStatus.RESERVED, reservationDTO.getCarModel());
+        carStatusHistoryService.addCarStatusHistoryRecord(carStatusHistoryDTO);
     }
+
+
 
     @DeleteMapping("/{id}")
     public void deleteReservationById(@PathVariable("id") Long id) {
@@ -46,6 +55,10 @@ public class ReservationController {
 
     }
 
+    @GetMapping("/myresevations/{id}")
+    public List<ReservationModel> getReservationsOfAGivenCustomer (@PathVariable("id") Long id) {
+    return reservationRepository.getReservationModelByCustomerId(id);
+    }
 
 
 
