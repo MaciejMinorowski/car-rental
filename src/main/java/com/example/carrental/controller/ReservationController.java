@@ -26,7 +26,8 @@ public class ReservationController {
 
 
     @GetMapping
-    public List<ReservationModel> getReservations() {
+    public List<ReservationModel> getReservations()
+    {
         return reservationService.getAllReservation();
     }
 
@@ -55,7 +56,7 @@ public class ReservationController {
 
     }
 
-    @GetMapping("/myresevations/{id}")
+    @GetMapping("/myreservations/{id}")
     public List<ReservationModel> getReservationsOfAGivenCustomer (@PathVariable("id") Long id) {
     return reservationRepository.getReservationModelByCustomerId(id);
     }

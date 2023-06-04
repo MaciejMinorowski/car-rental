@@ -43,6 +43,7 @@ public class CarController {
     }
 
 
+
     @GetMapping("/status/{id}")
     public CarStatus getCarStatusOnAGivenDay(@PathVariable("id") Long id, LocalDate localDate){
         CarModel carModel = carService.getCarModelById(id);
